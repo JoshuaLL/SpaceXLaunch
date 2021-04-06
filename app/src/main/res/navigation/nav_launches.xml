@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_launches"
+    app:startDestination="@+id/navigation_launches">
+
+    <fragment
+        android:id="@+id/navigation_launches"
+        android:name="com.joshua.spacexlaunch.ui.launches.LaunchesFragment"
+        android:label="@string/title_launches"
+        tools:layout="@layout/fragment_launches" />
+
+</navigation>
