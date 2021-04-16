@@ -2,6 +2,7 @@ package com.joshua.spacexlaunch
 
 import android.app.Application
 import com.joshua.spacexlaunch.BuildConfig
+import com.joshua.spacexlaunch.di.ApiModule
 import com.joshua.spacexlaunch.di.DBModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -25,7 +26,7 @@ class App: Application() {
         super.onCreate()
 
         val module = listOf(
-            DBModule
+            DBModule, ApiModule
         )
 
         startKoin {

@@ -6,4 +6,175 @@
     <string name="title_about">About</string>
     <string name="title_settings">Settings</string>
 
+    <string name="snackbar_action_retry">Retry</string>
+
+    <!-- Company fragment -->
+    <string name="company_valuation">$ %1$s</string>
+
+    <!-- Nav drawer menu items and labels -->
+    <string name="label_nav_view_header">SPACE X</string>
+    <string name="label_capsules">Capsules</string>
+    <string name="label_cores">Cores</string>
+    <string name="label_company">Company</string>
+    <string name="label_dashboard">Dashboard</string>
+    <string name="label_settings">Settings</string>
+    <string name="label_capsule_detail">Capsule Detail</string>
+    <string name="label_core_detail">Core Detail</string>
+    <string name="label_all_launches">All Launches</string>
+    <string name="label_upcoming_launches_detail">Launch Detail</string>
+    <string name="label_launch_pads">Launch Pads</string>
+    <string name="label_about">About</string>
+    <string name="label_used_libs">Used Libraries</string>
+
+    <string name="title_capsule_serial">Capsule serial</string>
+    <string name="title_type">Type</string>
+    <string name="title_status">Status</string>
+    <string name="title_original_launch_utc_time">Original launch date</string>
+    <string name="title_details">Details</string>
+    <string name="title_landings">Landings</string>
+    <string name="title_reused">Reused</string>
+    <string name="title_spacex">SpaceX</string>
+    <string name="title_summary">Summary</string>
+    <string name="founded_by_elon_musk">Founded by Elon Musk</string>
+    <string name="title_resources">Resources</string>
+    <string name="title_employees">employees</string>
+    <string name="title_vehicles">vehicles</string>
+    <string name="title_launch_sites">launch sites</string>
+    <string name="title_test_sites">test sites</string>
+    <string name="title_valuation">Valuation</string>
+    <string name="title_headquarters">Headquarters</string>
+    <string name="title_city">city</string>
+
+    <string name="launch_date_null">No launch date provided</string>
+    <string name="details_null">No details provided</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="core_block">Block %d</string>
+    <string name="core_block_null">Block not assigned</string>
+    <string name="flight_number_newest">Flight number: newest</string>
+    <string name="flight_number_oldest">Flight number: oldest</string>
+    <string name="launch_site">Launch site</string>
+    <string name="flight_number_template">Flight %d</string>
+
+    <string name="empty_content_sign" translatable="false">-</string>
+
+    <!-- Settings  -->
+    <string name="settings_refresh_interval_title">Data refresh interval</string>
+    <string name="settings_dark_mode_title">Dark mode</string>
+    <string name="settings_refresh_interval_dialog_title">Set data auto refresh interval</string>
+
+
+    <!-- About screen -->
+    <string name="created_by">Created by</string>
+    <string name="omisie11" translatable="false">OMIsie11</string>
+    <string name="you_can_find_me_at">You can find me at:</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="github_url_omisie11" translatable="false">https://github.com/OMIsie11</string>
+    <string name="twitter" translatable="false">Twitter</string>
+    <string name="twitter_url_omisie11" translatable="false">https://twitter.com/omisie11</string>
+    <string name="website_url_omisie11" translatable="false">https://omisie11.github.io</string>
+    <string name="source_code">Source code</string>
+    <string name="source_code_url" translatable="false">https://github.com/OMIsie11/SpaceXFollower</string>
+    <string name="lottie_attribution_dongdona">Animation made by <b>Donghwa Kang</b>, check her work at
+        <a href="https://lottiefiles.com/dongdona">
+            <b>lottiefiles.com/dongdona</b>
+        </a>
+    </string>
+    <string name="lottie_files_url_dongdona" translatable="false">https://lottiefiles.com/dongdona</string>
+    <string name="photos_attribution_spacex">All photos come from <a href="https://www.flickr.com/people/spacex/">SpaceX
+        Flickr Profile</a>.\nClick here to visit it.
+    </string>
+    <string name="photos_spacex_url" translatable="false">https://www.flickr.com/people/spacex/</string>
+    <string name="attribution_space_api">Application is getting data from Unofficial
+        <a href="https://github.com/r-spacex/SpaceX-API">
+            <b>Open Source SpaceX API</b>
+        </a>
+        . Click here to visit site.
+    </string>
+    <string name="space_api_url" translatable="false">https://github.com/r-spacex/SpaceX-API</string>
+    <string name="attribution_devs">Kudos to all <a href="https://github.com/OMIsie11/SpaceXFollower#contributors">amazing people</a> that contributed to this project</string>
+    <string name="url_github_contributors" translatable="false">https://github.com/OMIsie11/SpaceXFollower#contributors</string>
+
+    <!-- Other -->
+    <string name="detail_fragment_image_content_desc">Picture connected with SpaceX missions and operations</string>
+    <string name="sort_by">Sort by:</string>
+    <string name="serial_newest">Serial: newest</string>
+    <string name="serial_oldest">Serial: oldest</string>
+    <string name="core_serial">Core serial</string>
+    <string name="block">Block</string>
+    <string name="status">Status</string>
+    <string name="original_launch">Original launch</string>
+    <string name="details">Details</string>
+    <string name="rtls_attempts">RTLS attempts</string>
+    <string name="rtls_landings">RTLS landings</string>
+    <string name="asds_attempts">ASDS attempts</string>
+    <string name="asds_landings">ASDS landings</string>
+    <string name="water_landing">Water landing</string>
+    <string name="reused">Reused</string>
+    <string name="flight_number">Flight number</string>
+    <string name="mission_name">Mission name</string>
+    <string name="launch_date">Launch date</string>
+    <string name="refresh">Refresh</string>
+    <string name="delete">Delete</string>
+
+    <string name="block_number_template">Block %d</string>
+    <string name="no_cores_used_in_launch">No cores are used in this mission</string>
+    <string name="no_precision_info">No precision info provided</string>
+    <string name="no_payloads">No payloads</string>
+    <string name="second_stage_payloads">Second stage payloads</string>
+    <string name="first_stage_cores">First stage cores</string>
+    <string name="expand_collapse_arrow_image">Expand and collapse arrow image</string>
+    <string name="credits">Credits</string>
+
+    <string name="application_no_affiliation">Developer and Application are not affiliated with SpaceX in any way.
+    </string>
+    <string name="nationality">nationality</string>
+    <string name="manufacturer">manufacturer</string>
+    <string name="payload_type">payload type</string>
+    <string name="payload_mass_kg">payload mass [kg]</string>
+    <string name="orbit">orbit</string>
+    <string name="payload_reused">reused</string>
+    <string name="website">Website</string>
+    <string name="get_the_app_source_code_on_github">Get the app source code on GitHub</string>
+    <string name="customers_payloads">Customers:</string>
+    <string name="attribution_used_libraries">Click here to check out awesome libraries that helped with making this app.</string>
+    <string name="show_headquarters_location_in_google_maps">Show headquarters location in Google Maps</string>
+    <string name="launches">Launches</string>
+    <string name="month_short_january">Jan.</string>
+    <string name="month_short_february">Feb.</string>
+    <string name="month_short_march">Mar.</string>
+    <string name="month_short_april">Apr.</string>
+    <string name="month_may">May</string>
+    <string name="month_short_june">Jun.</string>
+    <string name="month_short_july">Jul.</string>
+    <string name="month_short_august">Aug.</string>
+    <string name="month_short_september">Sep.</string>
+    <string name="month_short_october">Oct.</string>
+    <string name="month_short_november">Nov.</string>
+    <string name="month_short_december">Dec.</string>
+    <string name="Launches_in_2019">Launches in 2019</string>
+    <string name="actual_stats">Actual stats</string>
+    <string name="change_year">Change year</string>
+    <string name="year_to_show_in_chart">Year to show in chart</string>
+    <string name="launches_in_template">Launches in %d</string>
+    <string name="status_of_capsules">Status of capsules</string>
+    <string name="status_of_cores">Status of cores</string>
+
+    <string name="attempted_launches">Attempted launches</string>
+    <string name="successful_launches">Successful launches</string>
+    <string name="content_desc_image_expand_collapse">Icon indicating if location item is collapsed or expanded</string>
+    <string name="content_desc_image_location_pin">Image with location pin</string>
+    <string name="block_ascending">Block: ascending</string>
+    <string name="block_descending">Block: descending</string>
+    <string name="status_active_first">Status: active first</string>
+    <string name="status_active_last">Status: active last</string>
+    <string name="image_with_mission_patch">Image with mission patch</string>
+    <string name="no_info">No info</string>
+    <string name="flight">Flight</string>
+    <string name="landing">Landing</string>
+    <string name="unknown_core">Unknown Core</string>
+    <string name="payloads">Payloads</string>
+    <string name="links">Links</string>
+
 </resources>

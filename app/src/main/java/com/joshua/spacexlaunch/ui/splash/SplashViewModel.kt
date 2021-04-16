@@ -15,7 +15,7 @@ class SplashViewModel : BaseViewModel(){
 
     fun switchHome(directions: NavDirections){
         viewModelScope.launch {
-           delay(3000)
+           delay(1500)
             _switchNav.value = directions
         }
     }

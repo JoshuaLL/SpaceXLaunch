@@ -6,7 +6,6 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -48,6 +47,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "$compose_version"
     }
 }
 
@@ -97,6 +101,7 @@ dependencies {
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-compose:$navigation_compose_version"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support"
 
     // Glide
@@ -116,6 +121,16 @@ dependencies {
     // WorkManager
     implementation "androidx.work:work-runtime-ktx:$work_manager_version"
 
+    // Compose
+    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation "androidx.compose.foundation:foundation:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.material:material-icons-core:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    implementation "androidx.activity:activity-compose:$compose_activity_version"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit$compose_version"
+
     // Leak Canary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
 
@@ -131,6 +146,11 @@ dependencies {
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     implementation "org.koin:koin-androidx-ext:$koin_version"
     implementation "org.koin:koin-androidx-compose:$koin_version"
+
+    // Ktor
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization-jvm:$ktor_version"
 
     // Timber
     implementation "com.jakewharton.timber:timber:$timber_version"
