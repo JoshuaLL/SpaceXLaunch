@@ -9,4 +9,6 @@
     <color name="black_500">#CC474040</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray_500">#FFF0F0F0</color>
+    <color name="blue_700">#FF1C1E28</color>
+    <color name="blue_500">#FF071C74</color>
 </resources>

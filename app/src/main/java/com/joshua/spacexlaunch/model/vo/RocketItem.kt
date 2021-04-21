@@ -1,7 +1,9 @@
 package com.joshua.spacexlaunch.model.vo
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class RocketItem(
     @SerializedName("rocket_id")
     val rocket_id: String,
@@ -16,11 +18,13 @@ data class RocketItem(
     // @SerializedName("fairings") val fairings: Fairings
 ) {
 
+    @Serializable
     data class FirstStage(
         @SerializedName("cores")
         val cores: List<Core>?
     )
 
+    @Serializable
     data class Core(
         @SerializedName("core_serial")
         val core_serial: String?,
@@ -44,6 +48,7 @@ data class RocketItem(
         val landing_vehicle: String?
     )
 
+    @Serializable
     data class SecondStage(
         @SerializedName("block")
         val block: Int?,
@@ -51,6 +56,7 @@ data class RocketItem(
         val payloads: List<Payload>?
     )
 
+    @Serializable
     data class Payload(
         @SerializedName("payload_id")
         val payload_id: String?,

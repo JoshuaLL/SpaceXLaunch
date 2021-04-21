@@ -10,18 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.joshua.spacexlaunch.R
-import com.joshua.spacexlaunch.databinding.FragmentAboutBinding
+//import com.joshua.spacexlaunch.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment(R.layout.fragment_about) {
-    private lateinit var binding:FragmentAboutBinding
+//    private lateinit var binding:FragmentAboutBinding
 
     private val aboutViewModel: AboutViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentAboutBinding.bind(view)
-        aboutViewModel.text.observe(viewLifecycleOwner){
-            binding.textAbout.text =it
-        }
+//        super.onViewCreated(view, savedInstanceState)
+//        binding = FragmentAboutBinding.bind(view)
+//        aboutViewModel.text.observe(viewLifecycleOwner){
+//            binding.textAbout.text =it
+//        }
     }
 }

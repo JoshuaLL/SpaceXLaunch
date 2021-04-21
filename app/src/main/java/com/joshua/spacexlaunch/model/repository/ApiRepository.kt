@@ -10,8 +10,8 @@ import io.ktor.util.*
 class ApiRepository( private val client: HttpClient) {
 
     @KtorExperimentalAPI
-    suspend fun getAllLaunches() = client.request<List<LaunchItem>>("$SPACE_X_BASE_URL/v3/launches") {
-        method = HttpMethod.Get
-        headers {}
+    suspend fun getAllLaunches() = client.get<List<LaunchItem>>("$SPACE_X_BASE_URL/v3/launches") {
+        contentType(ContentType.Application.Json)
+
     }
 }

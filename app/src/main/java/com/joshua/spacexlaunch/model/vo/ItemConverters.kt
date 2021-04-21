@@ -5,7 +5,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class LaunchSiteConverter {
-
     private val gson = Gson()
     private val type = object : TypeToken<LaunchSiteItem>() {}.type
 
@@ -31,11 +30,11 @@ class RocketConverter {
 class LaunchLinksConverter {
 
     private val gson = Gson()
-    private val type = object : TypeToken<LaunchItem.Links>() {}.type
+    private val type = object : TypeToken<Links>() {}.type
 
     @TypeConverter
-    fun launchSiteToString(links: LaunchItem.Links): String? = gson.toJson(links, type)
+    fun launchSiteToString(links: Links): String? = gson.toJson(links, type)
 
     @TypeConverter
-    fun stringToLaunchSite(linksString: String): LaunchItem.Links? = gson.fromJson(linksString, type)
+    fun stringToLaunchSite(linksString: String): Links? = gson.fromJson(linksString, type)
 }

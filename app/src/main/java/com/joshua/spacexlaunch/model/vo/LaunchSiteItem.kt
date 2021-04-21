@@ -1,7 +1,9 @@
 package com.joshua.spacexlaunch.model.vo
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class LaunchSiteItem(
     @SerializedName("site_id")
     val siteId: String,

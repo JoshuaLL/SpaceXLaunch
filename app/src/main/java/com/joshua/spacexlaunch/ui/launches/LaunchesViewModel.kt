@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
-import retrofit2.HttpException
+import timber.log.Timber
 
 class LaunchesViewModel : BaseViewModel() {
 
@@ -31,16 +31,18 @@ class LaunchesViewModel : BaseViewModel() {
 
     @OptIn(KtorExperimentalAPI::class)
     private suspend fun getAllLaunches(){
+        Timber.i("GetLaunches")
         flow<LaunchesState> {
             try{
                 val result = apiRepository.getAllLaunches()
+                Timber.i("GetLaunches result=$result")
                 emit(LaunchesState.Success(result))
             }catch (e:Exception){
+                Timber.i("GetLaunches Exception=$e")
                 throw e
             }
         }.flowOn(Dispatchers.IO)
             .onStart { emit(LaunchesState.Loading) }
-            .onCompletion { emit(LaunchesState.Loaded) }
             .catch { e ->
                 if (e.message.isValid()) {
                     emit(LaunchesState.RecoverableError(Exception(e.message)))

@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-parcelize'
-    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-android-extensions'
+    id 'kotlinx-serialization'
 }
 
 android {
@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.joshua.spacexlaunch"
-        minSdkVersion 30
+        minSdkVersion 28
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -46,7 +46,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+//        viewBinding true
         compose true
     }
 
@@ -84,12 +84,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
 
     // OkHttp
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
-
-    // Retrofit 2
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+//    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+//    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_interceptor_version"
 
     // Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
@@ -128,8 +124,11 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.activity:activity-compose:$compose_activity_version"
+    implementation "androidx.compose.runtime:runtime:$compose_version"
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit$compose_version"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$compose_version"
+
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     // Leak Canary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
@@ -147,10 +146,18 @@ dependencies {
     implementation "org.koin:koin-androidx-ext:$koin_version"
     implementation "org.koin:koin-androidx-compose:$koin_version"
 
+    // Gson
+    implementation "com.google.code.gson:gson:$gson_version"
+
     // Ktor
+    implementation "io.ktor:ktor-client-core:$ktor_version"
     implementation "io.ktor:ktor-client-android:$ktor_version"
     implementation "io.ktor:ktor-client-cio:$ktor_version"
-    implementation "io.ktor:ktor-client-serialization-jvm:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
+    implementation "io.ktor:ktor-gson:$ktor_version"
+    implementation "io.ktor:ktor-client-jackson:$ktor_version"
+    implementation "io.ktor:ktor-client-gson:$ktor_version"
+    implementation "io.ktor:ktor-client-logging-jvm:$ktor_version"
 
     // Timber
     implementation "com.jakewharton.timber:timber:$timber_version"

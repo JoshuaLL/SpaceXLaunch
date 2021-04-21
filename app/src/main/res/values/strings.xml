@@ -177,4 +177,8 @@
     <string name="payloads">Payloads</string>
     <string name="links">Links</string>
 
+    <string name="screen_splash">Splash</string>
+    <string name="screen_home">Home</string>
+    <string name="screen_launches">Launches</string>
+    <string name="screen_about">About</string>
 </resources>
