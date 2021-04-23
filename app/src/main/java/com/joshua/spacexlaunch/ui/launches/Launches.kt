@@ -1,8 +1,7 @@
 package com.joshua.spacexlaunch.ui.launches
 
-import android.os.Bundle
-import android.view.View
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -11,50 +10,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.google.accompanist.glide.rememberGlidePainter
 import com.joshua.spacexlaunch.R
-//import com.joshua.spacexlaunch.databinding.FragmentLaunchesBinding
 import com.joshua.spacexlaunch.model.vo.LaunchItem
-import com.joshua.spacexlaunch.ui.compose.GlideImage
 import com.joshua.spacexlaunch.utils.getLocalTimeFromUnix
 import timber.log.Timber
-
-class LaunchesFragment : Fragment() {
-
-//    private lateinit var binding: FragmentLaunchesBinding
-    private val viewModel: LaunchesViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        viewModel.allLaunches.observe(viewLifecycleOwner){
-
-        }
-
-    }
-
-//
-//    @Composable
-//    fun MySimpleListItem(itemViewState: ItemViewState) {
-//        Text(text = itemViewState.text)
-//    }
-}
 
 @ExperimentalFoundationApi
 @Composable
 fun GetLaunches(
     navController: NavController,
     setTitle: (String) -> Unit,
+    modifier: Modifier = Modifier,
     launchesViewModel: LaunchesViewModel = viewModel()) {
     val launchesState by launchesViewModel.allLaunches.observeAsState()
     Timber.i("GetLaunches launchesState=$launchesState")
@@ -69,7 +43,7 @@ fun GetLaunches(
 
             }
             is LaunchesState.Success -> {
-                LaunchesComposable(state.list)
+                LaunchesComposable(modifier, state.list)
 
             }
         }
@@ -79,10 +53,8 @@ fun GetLaunches(
 }
 
 @Composable
-fun LaunchesComposable(launchesList: List<LaunchItem>) {
-    LazyColumn(
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),)
+fun LaunchesComposable(modifier: Modifier, launchesList: List<LaunchItem>) {
+    LazyColumn( modifier)
     {
         items(launchesList) { item ->
             LaunchItemCard(item)
@@ -93,24 +65,53 @@ fun LaunchesComposable(launchesList: List<LaunchItem>) {
 @Composable
 fun LaunchItemCard(launch: LaunchItem){
     Row(
-//            modifier = Modifier.fillMaxWidth()
-//                .wrapContentHeight(),
+        modifier = Modifier.fillMaxWidth().wrapContentHeight().padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ){
-        Column {
+        Image(
+            modifier = Modifier.size(50.dp).weight(1f),
+            painter = rememberGlidePainter(
+                request =  launch.links.missionPatchSmall,
+                fadeIn = true,
+                previewPlaceholder = R.drawable.ic_rocket_logo,
+            ),
+            contentDescription= launch.details
+
+        )
+
+        Column(
+            modifier = Modifier.weight(4f)
+                .padding(start = 20.dp, end = 10.dp)
+        ) {
             Text(
-                stringResource(
+                text = stringResource(
                     R.string.flight_number_template,
                     launch.flight_number
-                )
+                ),
+                fontSize = 16.sp
             )
-            Text(launch.missionName ?: stringResource(R.string.launch_date_null))
             Text(
-                if (launch.launchDateUnix != null) getLocalTimeFromUnix(launch.launchDateUnix)
-                else stringResource(R.string.launch_date_null))
+                text = launch.missionName ?: stringResource(R.string.launch_date_null),
+                fontSize = 12.sp
+            )
+            Text(
+                text = if (launch.launchDateUnix != null) getLocalTimeFromUnix(launch.launchDateUnix)
+                else stringResource(R.string.launch_date_null),
+                fontSize = 12.sp
+            )
+
         }
-        launch.links.missionPatchSmall?.let {
-            GlideImage(it)
+
+        Column(
+            modifier= Modifier.weight(1.5f),
+            verticalArrangement= Arrangement.Top,
+            horizontalAlignment= Alignment.End
+        ) {
+            Text(
+                 text = if(launch.launchSuccess) stringResource(R.string.launch_success)
+                 else stringResource(R.string.launch_failed),
+                 color = if(launch.launchSuccess) Color.Blue else Color.Red
+            )
         }
 
     }

@@ -56,6 +56,8 @@
     <string name="flight_number_oldest">Flight number: oldest</string>
     <string name="launch_site">Launch site</string>
     <string name="flight_number_template">Flight %d</string>
+    <string name="launch_success">success</string>
+    <string name="launch_failed">Failed</string>
 
     <string name="empty_content_sign" translatable="false">-</string>
 

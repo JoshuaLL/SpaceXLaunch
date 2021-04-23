@@ -44,6 +44,10 @@ data class LaunchItem(
     @ColumnInfo(name = "rocket")
     val rocket: RocketItem,
 
+    @SerializedName("launch_success")
+    @ColumnInfo(name = "launch_success")
+    val launchSuccess: Boolean,
+
     @SerializedName("links")
     @TypeConverters(LaunchLinksConverter::class)
     @ColumnInfo(name = "links")

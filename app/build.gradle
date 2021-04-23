@@ -117,7 +117,7 @@ dependencies {
     // WorkManager
     implementation "androidx.work:work-runtime-ktx:$work_manager_version"
 
-    // Compose
+    // Jetpack Compose
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.compose.foundation:foundation:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
@@ -127,6 +127,10 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:$compose_version"
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     implementation "androidx.compose.runtime:runtime-rxjava2:$compose_version"
+
+    // google Accompanist
+    implementation "com.google.accompanist:accompanist-glide:$google_accompanist"
+    implementation "com.google.accompanist:accompanist-insets:$google_accompanist"
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 

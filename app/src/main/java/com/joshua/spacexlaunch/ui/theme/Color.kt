@@ -39,6 +39,7 @@ val green900 = Color(0xFF2d3b2d)
 val green300 = Color(0xFFb8c9b8)
 
 val black = Color(0xFF1C1E28)
+val black500 = Color(0xCC474040)
 val darkBlue = Color(0xFF212E54)
 val blue = Color(0xFF071C74)
 val white = Color.White

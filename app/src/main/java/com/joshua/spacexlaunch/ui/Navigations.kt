@@ -3,6 +3,7 @@ package com.joshua.spacexlaunch.ui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
@@ -10,15 +11,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.joshua.spacexlaunch.*
 import com.joshua.spacexlaunch.R
 import com.joshua.spacexlaunch.ui.launches.GetLaunches
+import com.google.accompanist.insets.navigationBarsHeight
 import timber.log.Timber
 
 @ExperimentalFoundationApi
@@ -78,7 +82,9 @@ fun Navigation() {
         bottomBar = {
             // Not show bottom navigation if go to movie detail screen.
             if (!isCurrentLaunchesDetail.value) {
-                BottomNavigation {
+                BottomNavigation(
+                    modifier = Modifier.navigationBarsHeight(additional = 56.dp)
+                ) {
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
                     val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
 
@@ -109,11 +115,13 @@ fun Navigation() {
                     }
                 }
             }
-        }
-    ){
+        },
+    ){ innerPadding ->
+        val modifier = Modifier.padding(innerPadding)
+
         NavHost(navController, startDestination = Screen.Launches.route) {
             composable(Screen.Launches.route) {
-                GetLaunches(navController, setTitle)
+                GetLaunches(navController, setTitle, modifier)
                 isCurrentLaunchesDetail.value = false
             }
             composable(
