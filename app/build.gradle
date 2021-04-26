@@ -67,6 +67,16 @@ dependencies {
     implementation "androidx.preference:preference-ktx:$preference"
     implementation "com.google.android.material:material:$material_version"
 
+    // AndroidX UI
+    implementation "androidx.core:core-role:$core_role_version"
+    implementation "androidx.core:core-animation:$core_animation"
+    androidTestImplementation "androidx.core:core-animation-testing:$core_animation"
+    implementation "androidx.ui:ui-framework:$ktx_ui_version"
+    implementation "androidx.ui:ui-layout:$ktx_ui_version"
+    implementation "androidx.ui:ui-foundation:$ktx_ui_version"
+    implementation "androidx.ui:ui-material:$ktx_ui_version"
+    implementation "androidx.ui:ui-tooling:$ktx_ui_version"
+
     // KTX Extensions
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_extensions_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$ktx_extensions_version"

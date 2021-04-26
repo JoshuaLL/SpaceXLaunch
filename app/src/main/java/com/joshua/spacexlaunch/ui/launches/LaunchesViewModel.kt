@@ -62,5 +62,4 @@ sealed class LaunchesState {
     data class Success(val list: List<LaunchItem>) : LaunchesState()
     data class RecoverableError(val exception: Exception) : LaunchesState()
     data class NonRecoverableError(val exception: Exception) : LaunchesState()
-
 }

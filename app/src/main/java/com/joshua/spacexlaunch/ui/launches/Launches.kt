@@ -48,8 +48,6 @@ fun GetLaunches(
             }
         }
     }
-
-
 }
 
 @Composable
