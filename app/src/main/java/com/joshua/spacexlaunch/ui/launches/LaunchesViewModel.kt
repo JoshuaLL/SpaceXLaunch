@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.joshua.spacexlaunch.extensions.isValid
-import com.joshua.spacexlaunch.model.repository.ApiRepository
-import com.joshua.spacexlaunch.model.vo.ApiResult
+import com.joshua.spacexlaunch.model.remote.ApiRepository
 import com.joshua.spacexlaunch.model.vo.LaunchItem
 import com.joshua.spacexlaunch.ui.base.BaseViewModel
 import io.ktor.util.*

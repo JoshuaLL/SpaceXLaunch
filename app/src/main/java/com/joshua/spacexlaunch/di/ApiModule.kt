@@ -2,15 +2,13 @@ package com.joshua.spacexlaunch.di
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.joshua.spacexlaunch.API_TIME_OUT
-import com.joshua.spacexlaunch.model.repository.ApiRepository
+import com.joshua.spacexlaunch.model.remote.ApiRepository
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
 import io.ktor.client.features.observer.*
-import io.ktor.features.*
-import io.ktor.gson.*
 import org.koin.dsl.module
 import timber.log.Timber
 import java.text.DateFormat
