@@ -141,6 +141,7 @@ dependencies {
     // google Accompanist
     implementation "com.google.accompanist:accompanist-glide:$google_accompanist"
     implementation "com.google.accompanist:accompanist-insets:$google_accompanist"
+    implementation "com.google.accompanist:accompanist-pager:$google_accompanist"
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 

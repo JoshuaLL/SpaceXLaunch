@@ -3,8 +3,13 @@ package com.joshua.spacexlaunch.ui.launches
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.joshua.spacexlaunch.extensions.isValid
 import com.joshua.spacexlaunch.model.remote.ApiRepository
+import com.joshua.spacexlaunch.model.remote.datasource.LaunchesDataSource
+import com.joshua.spacexlaunch.model.remote.datasource.LaunchesDataSource.Companion.PAGE_SIZE
+import com.joshua.spacexlaunch.model.remote.datasource.LaunchesDataSource.Companion.PER_LIMIT
 import com.joshua.spacexlaunch.model.vo.LaunchItem
 import com.joshua.spacexlaunch.ui.base.BaseViewModel
 import io.ktor.util.*
@@ -25,6 +30,22 @@ class LaunchesViewModel : BaseViewModel() {
     init{
         viewModelScope.launch {
             getAllLaunches()
+        }
+    }
+
+    suspend fun getPagingData() {
+        return Pager(
+            config = PagingConfig(
+                pageSize = PAGE_SIZE,
+                prefetchDistance = PAGE_SIZE.div(PER_LIMIT)
+            ),
+            pagingSourceFactory = { LaunchesDataSource(apiRepository) }
+        ).flow.catch {
+
+        }.onStart {
+
+        }.collect{
+
         }
     }
 
