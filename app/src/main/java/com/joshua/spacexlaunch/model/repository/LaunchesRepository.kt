@@ -33,42 +33,42 @@ class LaunchesRepository(
         Timber.d("Refreshing data")
     }
 
-    private suspend fun fetchLaunchesAndSaveToDb() {
-        Timber.d("fetchLaunchesAndSaveToDb called")
-        flow<ApiResult<List<LaunchItem>>> {
-            try {
-                val result = apiRepository.getAllLaunches()
-                Timber.i("GetLaunches result=$result")
-                emit(ApiResult.Success(result))
-            } catch (e: Exception) {
-                Timber.i("GetLaunches Exception=$e")
-                throw e
-            }
-        }
-            .flowOn(Dispatchers.IO)
-            .catch { e ->
-                if (e.message.isValid()) {
-                    emit(ApiResult.RecoverableError(e))
-                } else {
-                    emit(ApiResult.NonRecoverableError(e))
-                }
-            }
-            .collect {
-                when (it) {
-                    is ApiResult.Loaded -> {}
-                    is ApiResult.Loading -> {}
-                    is ApiResult.NonRecoverableError-> {
-                        Timber.i("GetLaunches Exception=${it.throwable}")
-                    }
-                    is ApiResult.RecoverableError ->
-                        Timber.i("GetLaunches Exception=${it.throwable}")
-                    is ApiResult.Success ->{
-
-                    }
-                }
-
-            }
-
-    }
+//    private suspend fun fetchLaunchesAndSaveToDb() {
+//        Timber.d("fetchLaunchesAndSaveToDb called")
+//        flow<ApiResult<List<LaunchItem>>> {
+//            try {
+//                val result = apiRepository.getAllLaunches()
+//                Timber.i("GetLaunches result=$result")
+//                emit(ApiResult.Success(result))
+//            } catch (e: Exception) {
+//                Timber.i("GetLaunches Exception=$e")
+//                throw e
+//            }
+//        }
+//            .flowOn(Dispatchers.IO)
+//            .catch { e ->
+//                if (e.message.isValid()) {
+//                    emit(ApiResult.RecoverableError(e))
+//                } else {
+//                    emit(ApiResult.NonRecoverableError(e))
+//                }
+//            }
+//            .collect {
+//                when (it) {
+//                    is ApiResult.Loaded -> {}
+//                    is ApiResult.Loading -> {}
+//                    is ApiResult.NonRecoverableError-> {
+//                        Timber.i("GetLaunches Exception=${it.throwable}")
+//                    }
+//                    is ApiResult.RecoverableError ->
+//                        Timber.i("GetLaunches Exception=${it.throwable}")
+//                    is ApiResult.Success ->{
+//
+//                    }
+//                }
+//
+//            }
+//
+//    }
 
 }

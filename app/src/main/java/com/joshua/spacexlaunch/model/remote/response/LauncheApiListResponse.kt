@@ -1,16 +1,17 @@
 package com.joshua.spacexlaunch.model.remote.response
 
 import com.google.gson.annotations.SerializedName
+import com.joshua.spacexlaunch.model.vo.LaunchItem
 import kotlinx.serialization.Serializable
 
 @Serializable
-open class BaseApiListResponse<Item> {
+data class LaunchItemListResponse (
     @SerializedName("totalPages")
-    val totalPages: Int? = null
+    val totalPages: Int,
     @SerializedName("totalDocs")
-    val totalDocs: Int? = null
+    val totalDocs: Int,
     @SerializedName("docs")
-    val docs: List<Item>? = null
+    val docs: List<LaunchItem>,
     @SerializedName("page")
-    val page: Int? = null
-}
+    val page: Int
+)
