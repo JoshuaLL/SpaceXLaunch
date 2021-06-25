@@ -88,12 +88,7 @@
         Flickr Profile</a>.\nClick here to visit it.
     </string>
     <string name="photos_spacex_url" translatable="false">https://www.flickr.com/people/spacex/</string>
-    <string name="attribution_space_api">Application is getting data from Unofficial
-        <a href="https://github.com/r-spacex/SpaceX-API">
-            <b>Open Source SpaceX API</b>
-        </a>
-        . Click here to visit site.
-    </string>
+    <string name="attribution_space_api">Application is getting data from Unofficial Open Source SpaceX API</string>
     <string name="space_api_url" translatable="false">https://github.com/r-spacex/SpaceX-API</string>
     <string name="attribution_devs">Kudos to all <a href="https://github.com/OMIsie11/SpaceXFollower#contributors">amazing people</a> that contributed to this project</string>
     <string name="url_github_contributors" translatable="false">https://github.com/OMIsie11/SpaceXFollower#contributors</string>

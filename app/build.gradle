@@ -115,6 +115,9 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
     implementation "jp.wasabeef:glide-transformations:$glide_transformations_version"
 
+    //coil
+    implementation "com.google.accompanist:accompanist-coil:$coil_version"
+
     // Room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
@@ -149,17 +152,16 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
 
     // Koin
-    implementation "org.koin:koin-core:$koin_version"
-    implementation "org.koin:koin-core-ext:$koin_version"
-    implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-android-scope:$koin_version"
-    implementation "org.koin:koin-android-viewmodel:$koin_version"
-    implementation "org.koin:koin-android-ext:$koin_version"
-    implementation "org.koin:koin-androidx-fragment:$koin_version"
-    implementation "org.koin:koin-androidx-scope:$koin_version"
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    implementation "org.koin:koin-androidx-ext:$koin_version"
-    implementation "org.koin:koin-androidx-compose:$koin_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+    implementation "io.insert-koin:koin-ktor:$koin_version"
+    implementation "io.insert-koin:koin-logger-slf4j:$koin_version"
+    testImplementation "io.insert-koin:koin-test:$koin_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    testImplementation "io.insert-koin:koin-test-junit5:$koin_version"
 
     // Gson
     implementation "com.google.code.gson:gson:$gson_version"

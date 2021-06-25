@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,14 +14,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.paging.PagingData
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.google.accompanist.glide.rememberGlidePainter
+import com.google.accompanist.coil.rememberCoilPainter
 import com.joshua.spacexlaunch.R
 import com.joshua.spacexlaunch.model.vo.LaunchItem
 import com.joshua.spacexlaunch.utils.getLocalTimeFromUnix
-import kotlinx.coroutines.flow.Flow
 import timber.log.Timber
 
 @ExperimentalFoundationApi
@@ -31,36 +27,18 @@ import timber.log.Timber
 fun GetLaunches(
     navController: NavController,
     setTitle: (String) -> Unit,
-    modifier: Modifier = Modifier,
-    launchesViewModel: LaunchesViewModel = viewModel()) {
-//    val launchesState by launchesViewModel.launchesState.observeAsState()
-//    Timber.i("GetLaunches launchesState=$launchesState")
-//    launchesState?.let {state->
-//        when(state){
-//            LaunchesState.Loading -> { }
-//            LaunchesState.Loaded -> {}
-//            is LaunchesState.NonRecoverableError -> {
-//
-//            }
-//            is LaunchesState.RecoverableError -> {
-//
-//            }
-//            is LaunchesState.Launches -> {
-//                LaunchesComposable(modifier, state.data)
-//
-//            }
-//        }
-//    }
-//    launchesViewModel.allLaunches()
-    LaunchesComposable(modifier, launchesViewModel.launchesData)
+    modifier: Modifier = Modifier
+) {
+    val viewModel: LaunchesViewModel = viewModel()
+    LaunchesComposable(modifier, viewModel)
 }
 
 @Composable
 fun LaunchesComposable(
     modifier: Modifier,
-    data: Flow<PagingData<LaunchesState>>
+    viewModel: LaunchesViewModel
 ) {
-    val lazyPagingItems= data.collectAsLazyPagingItems()
+    val lazyPagingItems= viewModel.launchesData.collectAsLazyPagingItems()
     LazyColumn(modifier)
     {
          items(lazyPagingItems){it->
@@ -103,15 +81,20 @@ fun LaunchItemCard(launch: LaunchItem){
             .padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ){
+        val painter = rememberCoilPainter(
+            request =  launch.links?.patch?.small,
+            fadeIn = true,
+            requestBuilder = {
+                placeholder(R.drawable.ic_baseline_guess)
+            },
+            previewPlaceholder = R.drawable.ic_baseline_guess,
+        )
+
         Image(
             modifier = Modifier
                 .size(50.dp)
                 .weight(1f),
-            painter = rememberGlidePainter(
-                request =  launch.links?.patch?.small,
-                fadeIn = true,
-                previewPlaceholder = R.drawable.ic_rocket_logo,
-            ),
+            painter = painter,
             contentDescription= launch.details
         )
 

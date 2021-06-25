@@ -1,15 +1,6 @@
 package com.joshua.spacexlaunch.model.vo
 
-import android.os.Parcelable
-import androidx.room.*
-import com.google.gson.Gson
-import com.google.gson.annotations.SerializedName
-import com.google.gson.reflect.TypeToken
-import com.joshua.spacexlaunch.TABLE_LAUNCHES
-import kotlinx.android.parcel.Parcelize
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import java.util.*
 
 @Serializable
 data class LaunchItem(

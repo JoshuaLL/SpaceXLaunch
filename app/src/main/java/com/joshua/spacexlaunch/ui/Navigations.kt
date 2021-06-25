@@ -17,12 +17,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.joshua.spacexlaunch.*
 import com.joshua.spacexlaunch.R
 import com.joshua.spacexlaunch.ui.launches.GetLaunches
 import com.google.accompanist.insets.navigationBarsHeight
+import com.joshua.spacexlaunch.ui.about.GetAboutPage
 import timber.log.Timber
 
 @ExperimentalFoundationApi
@@ -85,8 +87,8 @@ fun Navigation() {
                 BottomNavigation(
                     modifier = Modifier.navigationBarsHeight(additional = 56.dp)
                 ) {
-                    val navBackStackEntry by navController.currentBackStackEntryAsState()
-                    val currentRoute = navBackStackEntry?.arguments?.getString(KEY_ROUTE)
+
+                    val currentRoute = navController.currentBackStackEntry?.destination?.route
 
                     items.forEach { screen ->
                         BottomNavigationItem(
@@ -95,12 +97,7 @@ fun Navigation() {
                             selected = currentRoute == screen.route,
                             onClick = {
                                 navController.navigate(screen.route) {
-                                    // Pop up to the start destination of the graph to
-                                    // avoid building up a large stack of destinations
-                                    // on the back stack as users select items
-                                    popUpTo = navController.graph.startDestination
-                                    // Avoid multiple copies of the same destination when
-                                    // reselecting the same item
+                                    popUpTo = navController.graph.startDestinationId
                                     launchSingleTop = true
 
                                     toolBarIcon.value = screen.drawableId
@@ -134,7 +131,7 @@ fun Navigation() {
                 isCurrentLaunchesDetail.value = true
             }
             composable(Screen.About.route) {
-
+                GetAboutPage(navController, setTitle, modifier)
                 isCurrentLaunchesDetail.value = false
             }
         }

@@ -19,7 +19,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="TextAppearance.App.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
+    <style name="TextAppearance.App.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 </resources>

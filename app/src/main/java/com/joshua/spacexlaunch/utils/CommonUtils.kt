@@ -8,8 +8,6 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 
-
-// Used to convert SpaceX valuation, no need to support negative numbers
 fun shortenNumberAddPrefix(numberToFormat: Long): String {
     val number = numberToFormat.toDouble()
     val df = DecimalFormat("#.##").apply { roundingMode = RoundingMode.CEILING }
